@@ -1,0 +1,133 @@
+/* ==========================================================================
+   DESIGN TOKENS — FINANCIAMIENTO & SOLUCIONES S.A.S.
+   Identidad visual oficial: Verde (#6BB812) y Azul (#1E3CAA)
+   ========================================================================== */
+
+:root {
+  /* --- PALETA CROMÁTICA OFICIAL --- */
+  --color-green-primary: #6BB812;
+  --color-green-hover: #5CA00F;
+  --color-green-active: #4F8B0C;
+  --color-green-light: #F2F9EA;
+  --color-green-subtle: #E3F3D2;
+  --color-green-border: #BCDFA0;
+  --color-green-glow: rgba(107, 184, 18, 0.28);
+
+  --color-blue-primary: #1E3CAA;
+  --color-blue-hover: #162E87;
+  --color-blue-active: #102165;
+  --color-blue-dark: #0D1B50;
+  --color-blue-light: #EFF4FF;
+  --color-blue-subtle: #DCE7FE;
+  --color-blue-border: #BACFFA;
+  --color-blue-glow: rgba(30, 60, 170, 0.25);
+
+  /* Superficies oscuras institucionales */
+  --color-navy-950: #070D1E;
+  --color-navy-900: #0B142B;
+  --color-navy-850: #0F1B38;
+  --color-navy-800: #142347;
+  --color-navy-700: #1C2E5C;
+  --color-navy-border: #243B73;
+
+  /* Neutros y Superficies Claras */
+  --color-white: #FFFFFF;
+  --color-slate-50: #F8FAFC;
+  --color-slate-100: #F1F5F9;
+  --color-slate-200: #E2E8F0;
+  --color-slate-300: #CBD5E1;
+  --color-slate-400: #94A3B8;
+  --color-slate-500: #64748B;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1E293B;
+  --color-slate-900: #0F172A;
+
+  /* Semántica y Estados */
+  --color-success: #15803D;
+  --color-success-bg: #DCFCE7;
+  --color-warning: #B45309;
+  --color-warning-bg: #FEF3C7;
+  --color-danger: #B91C1C;
+  --color-danger-bg: #FEE2E2;
+  --color-info: #0369A1;
+  --color-info-bg: #E0F2FE;
+
+  /* --- TIPOGRAFÍA --- */
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Tamaños y Escala tipográfica */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+  --text-6xl: 3.75rem;    /* 60px */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.55;
+  --leading-relaxed: 1.7;
+
+  /* --- ESPACIADO Y LAYOUT --- */
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-10: 2.5rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-32: 8rem;
+
+  --max-width-container: 1280px;
+  --max-width-wide: 1440px;
+  --max-width-form: 960px;
+  --header-height-topbar: 38px;
+  --header-height-brand: 72px;
+  --header-height-nav-row: 46px;
+  --header-height-nav: 118px;
+  --header-height-total: 156px;
+
+  /* --- BORDES Y RADIOS --- */
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-2xl: 30px;
+  --radius-full: 9999px;
+
+  /* --- SOMBRAS Y ELEVACIÓN --- */
+  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 4px 14px rgba(15, 23, 42, 0.06), 0 1px 3px rgba(15, 23, 42, 0.04);
+  --shadow-hover: 0 12px 28px rgba(15, 23, 42, 0.12), 0 4px 10px rgba(15, 23, 42, 0.06);
+  --shadow-elevated: 0 20px 40px rgba(7, 13, 30, 0.18), 0 8px 16px rgba(7, 13, 30, 0.08);
+  --shadow-green-btn: 0 4px 14px rgba(107, 184, 18, 0.35);
+  --shadow-blue-btn: 0 4px 14px rgba(30, 60, 170, 0.35);
+
+  /* --- TRANSICIONES --- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* --- Z-INDEX --- */
+  --z-header: 100;
+  --z-modal: 500;
+  --z-toast: 600;
+}

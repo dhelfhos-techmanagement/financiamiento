@@ -1,0 +1,286 @@
+{
+  "admin_users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "password_hash": "4612ecd765e89708aad056e9f1d8e84ff0c120ea5df805ff7a37d37d764def9652ff0869ee1116c0c02146cff668b3cdea471866fbeffcb2e70ce4ed0505abd6",
+      "salt": "186c871b1ded0358501967e9d54d042a",
+      "role": "superadmin",
+      "created_at": "2026-09-28T19:19:48.593Z"
+    }
+  ],
+  "admin_sessions": {
+    "e8417dff-8876-4216-aacc-63f9f31536b9-c908bddc-5628-4727-b5e0-007690f4ce65": {
+      "user_id": 1,
+      "expires_at": 1790653089146
+    },
+    "57d3d79b-c24d-4c82-80e1-0bb8bd0e6ad5-d0928a85-9181-4f57-b841-82d5fe819246": {
+      "user_id": 1,
+      "expires_at": 1790664085458
+    },
+    "47d96bd0-c64f-41b0-b60a-0b9b0741a46b-287a504a-82b8-47ba-92fc-01d9f6de515a": {
+      "user_id": 1,
+      "expires_at": 1790664142158
+    },
+    "337c966d-a970-41b5-a9df-6261a4bad17a-95f2eaf5-c153-43f1-a524-82d4d9a3d58c": {
+      "user_id": 1,
+      "expires_at": 1790664187257
+    },
+    "381d0f4d-dfe0-4091-a620-27611aa79216-97eef437-8b2f-4bbd-b82e-a6474959cbec": {
+      "user_id": 1,
+      "expires_at": 1790664239688
+    },
+    "b055e6d4-5506-4e22-956a-1abc447121a3-c49266b5-cd2b-48e8-b13e-7686692c1446": {
+      "user_id": 1,
+      "expires_at": 1790664368155
+    },
+    "fd757011-e3ab-4e01-8d0c-3531e2d35871-7d95373f-3570-4697-a2ff-ce0dfb614dc3": {
+      "user_id": 1,
+      "expires_at": 1790664454350
+    },
+    "0906076c-3680-476d-adbb-b8ff71a961d7-2fabf194-fad3-4e17-b57d-8978155655b7": {
+      "user_id": 1,
+      "expires_at": 1790664542291
+    },
+    "2cbcd4b4-4565-4fc8-8b9f-05b4aa4d5ed4-1a104e21-312a-47e1-bd50-4e604937bb2d": {
+      "user_id": 1,
+      "expires_at": 1790664558831
+    }
+  },
+  "solicitudes": [],
+  "site_settings": {
+    "contact_phone": "(601) 000-0000",
+    "contact_email": "atencion@financiamientosoluciones.com",
+    "contact_hours": "Lunes a Sábado: 8:00 a.m. a 6:00 p.m.",
+    "min_down_pct": "37",
+    "max_down_pct": "80",
+    "default_term": "36",
+    "identity": {
+      "logo_url": "assets/images/logo.jpg",
+      "company_name": "FINANCIAMIENTO & SOLUCIONES",
+      "company_subtitle": "Financiera de Motocicletas S.A.S.",
+      "legal_text": "S.A.S. — NIT [En Registro Oficial]"
+    },
+    "hero": {
+      "tag": "Movilidad que te impulsa",
+      "title": "Haz realidad tu próxima moto",
+      "subtitle": "Financiación ágil, segura y a tu medida. Diseñamos planes transparentes que se adaptan a tus ingresos para que estrenes la motocicleta que impulsa tu trabajo y tu vida.",
+      "btn1_text": "Simula tu Cuota",
+      "btn1_link": "#simulador",
+      "btn2_text": "Solicitar Financiación",
+      "btn2_link": "#solicitud-credito",
+      "video_url": "Hero_Financiamiento_Soluciones_Identidad.mp4",
+      "poster_url": "assets/images/hero-lifestyle.jpg"
+    },
+    "propuesta_valor": {
+      "tag": "Modelo Institucional",
+      "title": "Unidos somos más oportunidad para todos",
+      "subtitle": "Nuestro modelo híbrido: tecnología con humanismo",
+      "lead_quote": "Tecnología que agiliza, personas que entienden.",
+      "lead_text": "Trabajamos con un modelo híbrido que une lo mejor de dos mundos. Nuestras herramientas tecnológicas analizan tu solicitud con rapidez y seguridad, y nuestro equipo humano escucha tu historia, entiende tu realidad y te acompaña en cada paso. Por eso no te juzgamos solo por un puntaje: diseñamos el crédito según lo que necesitas y puedes pagar.",
+      "pilar1_title": "RÁPIDO",
+      "pilar1_desc": "Respuesta y aprobación ágil, sin filas ni trámites interminables. Procesos digitales optimizados para que no pierdas tiempo.",
+      "pilar2_title": "SEGURO",
+      "pilar2_desc": "Procesos digitales confiables que protegen tu información y tu dinero bajo estrictos estándares de seguridad y confidencialidad.",
+      "pilar3_title": "A TU MEDIDA",
+      "pilar3_desc": "Asesoría personalizada para que tu crédito se ajuste a tu vida, tus ingresos y tus proyectos de crecimiento personal o laboral."
+    },
+    "mision_vision": {
+      "mision_title": "Nuestra Misión",
+      "mision_content": "En FINANCIAMIENTO & SOLUCIONES S.A.S. impulsamos la movilidad, el progreso y el bienestar de las familias colombianas facilitando el acceso a motocicletas a través de créditos ágiles, transparentes y a su medida. Combinamos tecnología avanzada con cercanía humana para ofrecer soluciones financieras responsables, seguras y de calidad que permitan a nuestros clientes mejorar sus ingresos, optimizar su tiempo y alcanzar sus metas.",
+      "vision_title": "Nuestra Visión",
+      "vision_year": "[AÑO POR CONFIRMAR: verificar con la empresa]",
+      "vision_content": "Para el [AÑO POR CONFIRMAR: verificar con la empresa], seremos la compañía líder y más confiable en la financiación de motocicletas en Colombia, reconocida por nuestra solidez financiera, excelencia en el servicio y aporte al desarrollo económico y social del país. Nos proyectamos como el aliado preferido de concesionarios y clientes, transformando la experiencia de financiamiento mediante innovación digital continua y un modelo humano que siempre pone a las personas en el centro de cada decisión."
+    },
+    "compromiso_social": {
+      "tag": "COMPROMISO SOCIAL & PAÍS",
+      "title": "Unidos somos más oportunidad para todos",
+      "main_text": "En FINANCIAMIENTO & SOLUCIONES S.A.S. entendemos que detrás de cada solicitud de crédito hay una persona trabajadora, una familia con metas y un proyecto de vida en marcha.",
+      "quote": "Creemos firmemente que una motocicleta es mucho más que un medio de transporte: es una herramienta de progreso, de independencia y de nuevas oportunidades.",
+      "complement_text": "Por eso, nuestro compromiso va más allá de un crédito; trabajamos para acompañar a quienes construyen país todos los días, brindándoles soluciones financieras que se adaptan a su realidad.",
+      "final_text": "Porque cuando una persona avanza, avanza su familia y avanza Colombia. Juntos construimos un futuro con más posibilidades para todos."
+    },
+    "lineas_negocio": [
+      {
+        "id": "linea_motos",
+        "title": "CRÉDITO PARA MOTOCICLETAS",
+        "desc": "Financiamos tu moto para que ganes movilidad, tiempo e ingresos. Para muchas familias, la moto es una herramienta de trabajo, y queremos que llegue a quienes la necesitan, con trámites ágiles y cuotas a tu medida.",
+        "btn_text": "Simular mi Moto",
+        "btn_link": "#simulador",
+        "active": true
+      },
+      {
+        "id": "linea_vehiculos",
+        "title": "CRÉDITO PARA VEHÍCULOS",
+        "desc": "Te acompañamos en la compra de tu carro, ya sea para uso personal o para trabajar. Ofrecemos un proceso claro, asesoría cercana y condiciones pensadas para tu realidad económica.",
+        "btn_text": "Consultar Plan",
+        "btn_link": "#solicitud-credito",
+        "active": true
+      },
+      {
+        "id": "linea_libranza",
+        "title": "CRÉDITOS DE LIBRANZA",
+        "desc": "Si eres empleado público, pensionado o trabajas en una empresa privada con convenio, accedes a crédito con descuento directo de nómina. Tus cuotas son fijas, el proceso es sencillo y tienes la tranquilidad de pagar sin preocuparte por fechas.",
+        "btn_text": "Solicitar Convenio",
+        "btn_link": "#solicitud-credito",
+        "active": true
+      }
+    ],
+    "requisitos": {
+      "title": "Requisitos Transparentes y al Alcance",
+      "subtitle": "Diseñados para facilitarte el acceso al crédito con trámites ágiles y claros.",
+      "empleados": [
+        "Documento de identidad original (Cédula de Ciudadanía o extranjería)",
+        "Certificación laboral con vigencia no mayor a 30 días",
+        "Desprendibles de pago de los últimos 2 a 3 meses",
+        "Ingresos mensuales mínimos demostrables a partir de 1 SMMLV"
+      ],
+      "independientes": [
+        "Documento de identidad original vigente",
+        "Extractos bancarios de los últimos 3 meses donde se reflejen movimientos",
+        "RUT actualizado o constancia de actividad comercial verificable",
+        "Facturas de compra/venta o soportes de ingresos del negocio"
+      ]
+    },
+    "faq_items": [
+      {
+        "id": "faq_1",
+        "category": "proceso",
+        "question": "¿Cuánto tiempo tarda la respuesta a mi solicitud de crédito?",
+        "answer": "Nuestro comité de evaluación digital emite una respuesta preliminar en un plazo promedio ágil una vez recibida la documentación completa y verificada la información del solicitante.",
+        "active": true
+      },
+      {
+        "id": "faq_2",
+        "category": "requisitos",
+        "question": "¿Puedo solicitar financiación si trabajo de forma independiente?",
+        "answer": "¡Sí, por supuesto! Contamos con una línea especializada para independientes, comerciantes y emprendedores, validando tus ingresos a través de extractos bancarios y constancias de tu actividad comercial.",
+        "active": true
+      },
+      {
+        "id": "faq_3",
+        "category": "requisitos",
+        "question": "¿Es obligatorio tener un codeudor solidario?",
+        "answer": "No en todos los casos. La exigencia de codeudor depende del perfil crediticio individual, los ingresos acreditados y el monto a financiar. En caso de requerirlo, puedes incluirlo fácilmente en el Paso 4 de tu formulario digital.",
+        "active": true
+      },
+      {
+        "id": "faq_4",
+        "category": "pagos",
+        "question": "¿Puedo realizar abonos extraordinarios a capital o cancelar anticipadamente?",
+        "answer": "Sí. Puedes realizar pagos extraordinarios directos al capital de tu crédito en cualquier momento sin penalidades, permitiéndote reducir el valor de tus cuotas restantes o el plazo total convenido.",
+        "active": true
+      },
+      {
+        "id": "faq_5",
+        "category": "proceso",
+        "question": "¿Qué marcas o tipos de motocicletas puedo financiar con ustedes?",
+        "answer": "Financiamos una amplia gama de motocicletas nuevas (urbanas, scooters, de trabajo, todoterreno y alto cilindraje) comercializadas por concesionarios autorizados y marcas líderes a nivel nacional.",
+        "active": true
+      }
+    ],
+    "social_networks": {
+      "instagram": {
+        "name": "Instagram",
+        "url": "",
+        "active": false
+      },
+      "facebook": {
+        "name": "Facebook",
+        "url": "",
+        "active": false
+      },
+      "tiktok": {
+        "name": "TikTok",
+        "url": "",
+        "active": false
+      },
+      "youtube": {
+        "name": "YouTube",
+        "url": "",
+        "active": false
+      },
+      "linkedin": {
+        "name": "LinkedIn",
+        "url": "",
+        "active": false
+      }
+    },
+    "contact": {
+      "address": "Sede Principal: [Dirección Oficial Institucional, Colombia]",
+      "phone": "(601) 000-0000",
+      "email": "atencion@financiamientosoluciones.com",
+      "hours": "Lunes a Sábado: 8:00 a.m. a 6:00 p.m."
+    }
+  },
+  "site_assets": {
+    "como_funciona": "ChatGPT Image 28 sept 2026, 12_16_18.png",
+    "hunk_125": "ChatGPT Image 28 sept 2026, 11_19_14.png",
+    "dr_150": "ChatGPT Image 28 sept 2026, 11_19_03.png",
+    "compromiso_social": "ChatGPT Image 28 sept 2026, 15_39_54.png"
+  },
+  "motorcycles": [
+    {
+      "id": "moto_hunk125",
+      "name": "HUNK 125",
+      "category": "Línea Urbana & Street",
+      "price": 8500000,
+      "promo_text": "Tu compañera para llegar más lejos.",
+      "desc": "Tu compañera ideal para llegar más lejos. Agilidad, bajo consumo de combustible, excelente torque y ergonomía diseñada para acompañar tu jornada laboral y tus recorridos diarios con total fiabilidad.",
+      "image_main": "ChatGPT Image 28 sept 2026, 11_19_14.png",
+      "gallery": [
+        "ChatGPT Image 28 sept 2026, 11_19_14.png"
+      ],
+      "specs": {
+        "engine": "Motor 125 cc",
+        "consumption": "Bajo Consumo",
+        "brakes": "Frenos IBS (Combinados)",
+        "lights": "Luces 100% LED"
+      },
+      "order": 1,
+      "active": true
+    },
+    {
+      "id": "moto_dr150",
+      "name": "DR 150",
+      "category": "Línea Adventure / Doble Propósito",
+      "price": 12800000,
+      "promo_text": "Más potencia para seguir avanzando.",
+      "desc": "Más potencia para seguir avanzando. Capacidad para dominar la ciudad o aventurarte en carretera y terrenos mixtos con suspensión reforzada, excelente respuesta de aceleración y frenado seguro.",
+      "image_main": "ChatGPT Image 28 sept 2026, 11_19_03.png",
+      "gallery": [
+        "ChatGPT Image 28 sept 2026, 11_19_03.png"
+      ],
+      "specs": {
+        "engine": "Motor 149 cc",
+        "consumption": "Gran Rendimiento",
+        "brakes": "Frenos ABS Total",
+        "lights": "Ideal Ciudad y Vía"
+      },
+      "order": 2,
+      "active": true
+    },
+    {
+      "id": "moto_1790635342168_93",
+      "name": "Pulsar NS 200 FI",
+      "category": "Línea Deportiva Naked",
+      "price": 13900000,
+      "promo_text": "Potencia tricilíndrica y refrigeración líquida.",
+      "desc": "Rendimiento deportivo para quienes buscan aceleración, tecnología de 4 válvulas y frenos ABS para máxima seguridad.",
+      "image_main": "ChatGPT Image 28 sept 2026, 11_19_14.png",
+      "gallery": [
+        "ChatGPT Image 28 sept 2026, 11_19_14.png"
+      ],
+      "specs": {
+        "engine": "Motor 199.5 cc",
+        "consumption": "Óptima Inyección",
+        "brakes": "ABS Delantero",
+        "lights": "Faro Perimetral LED"
+      },
+      "order": 3,
+      "active": true,
+      "created_at": "2026-09-28T22:42:22.168Z",
+      "updated_at": "2026-09-28T22:42:22.168Z"
+    }
+  ]
+}

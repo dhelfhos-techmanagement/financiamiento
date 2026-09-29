@@ -1,0 +1,12 @@
+{
+  "name": "financiamiento-soluciones",
+  "version": "1.0.0",
+  "description": "Plataforma Institucional y Sistema de Originación — Financiamiento & Soluciones S.A.S.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "author": "FINANCIAMIENTO & SOLUCIONES S.A.S.",
+  "license": "ISC"
+}

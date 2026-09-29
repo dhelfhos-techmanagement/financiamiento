@@ -1,0 +1,372 @@
+/* ==========================================================================
+   RESPONSIVE & ADAPTIVE STYLES — FINANCIAMIENTO & SOLUCIONES S.A.S.
+   ========================================================================== */
+
+/* --- TABLET & PANTALLAS MEDIANAS (Max 1024px) --- */
+@media (max-width: 1024px) {
+  .quick-access-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-3);
+  }
+
+  .value-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-4);
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .simulator-container {
+    grid-template-columns: 1fr;
+  }
+
+  .simulator-results {
+    border-left: none;
+    border-top: 1px solid var(--color-navy-border);
+  }
+
+  .models-hero-viewport {
+    height: 440px;
+  }
+
+  .models-meta-container {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+
+  .models-specs-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-top-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-8);
+  }
+}
+
+/* --- LAPTOPS & TABLETS INTERMEDIAS (769px a 1200px) --- */
+@media (max-width: 1200px) and (min-width: 769px) {
+  .header-brand-inner {
+    height: 66px;
+    gap: var(--spacing-4);
+  }
+
+  .brand-logo-img {
+    height: 44px;
+  }
+
+  .nav-link {
+    font-size: 0.74rem;
+    padding: 0 var(--spacing-2);
+    gap: 5px;
+  }
+
+  .nav-link svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .nav-actions {
+    gap: var(--spacing-2);
+  }
+
+  .nav-actions .btn-sm {
+    padding: 0.5rem 0.85rem;
+    font-size: 0.78rem;
+  }
+}
+
+/* --- TABLET COMPACTA & MÓVILES GRANDES (Max 768px) --- */
+@media (max-width: 768px) {
+  :root {
+    --header-height-brand: 68px;
+    --header-height-nav: 68px;
+    --header-height-total: 68px;
+  }
+
+  .top-utility-bar {
+    display: none;
+  }
+
+  .header-brand-inner {
+    height: 68px;
+  }
+
+  /* La barra horizontal Fila 2 pasa al drawer móvil */
+  .header-nav-row {
+    display: contents;
+  }
+
+  .nav-divider {
+    display: none;
+  }
+
+  /* Mobile Drawer Menu */
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: fixed;
+    top: 68px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-white);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: var(--spacing-6);
+    gap: var(--spacing-2);
+    overflow-y: auto;
+    border-top: 1px solid var(--color-slate-200);
+    box-shadow: var(--shadow-elevated);
+    z-index: var(--z-header);
+    height: auto;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-link {
+    font-size: var(--text-base);
+    padding: var(--spacing-3) var(--spacing-4);
+    height: auto;
+    gap: var(--spacing-3);
+  }
+
+  .nav-link svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-blue-primary);
+  }
+
+  .nav-link.active {
+    color: var(--color-green-primary);
+    background-color: rgba(107, 184, 18, 0.08);
+  }
+
+  .nav-link.active svg {
+    color: var(--color-green-primary);
+  }
+
+  .nav-link.active::after {
+    left: var(--spacing-4);
+    right: auto;
+    bottom: 4px;
+    width: 28px;
+    height: 3px;
+  }
+
+  .nav-actions .btn-simula-header {
+    display: none;
+  }
+
+  /* Hero Mobile */
+  .hero-section {
+    padding-top: var(--spacing-8);
+    padding-bottom: var(--spacing-12);
+  }
+
+  .hero-headline {
+    font-size: var(--text-3xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-base);
+  }
+
+  .hero-features-bar {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-3);
+  }
+
+  /* Quick Access Mobile */
+  .quick-access-section {
+    margin-top: -24px;
+  }
+
+  .quick-access-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: var(--spacing-3);
+  }
+
+  /* Value & Products Mobile */
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .req-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .models-header {
+    padding: 0 var(--spacing-4);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .models-header .section-title {
+    font-size: var(--text-2xl);
+    line-height: 1.25;
+  }
+
+  .models-hero-viewport {
+    height: clamp(260px, 52vw, 420px);
+    padding: 0 var(--spacing-3);
+  }
+
+  /* Simulator Mobile */
+  .simulator-controls {
+    padding: var(--spacing-6);
+  }
+
+  .simulator-results {
+    padding: var(--spacing-6);
+  }
+
+  .sim-terms-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sim-installment-value {
+    font-size: var(--text-3xl);
+  }
+
+  /* Form Wizard Mobile */
+  .form-body {
+    padding: var(--spacing-6);
+  }
+
+  .form-stepper {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
+  .form-step-pill span.step-text {
+    display: none;
+  }
+
+  .form-grid-2,
+  .form-grid-3 {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+  }
+
+  .form-nav-actions {
+    flex-direction: column-reverse;
+    gap: var(--spacing-3);
+  }
+
+  .form-nav-actions .btn {
+    width: 100%;
+  }
+
+  /* Footer Mobile */
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-3);
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+/* --- MÓVILES PEQUEÑOS (Max 480px) --- */
+@media (max-width: 480px) {
+  .hero-headline {
+    font-size: var(--text-2xl);
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-buttons .btn {
+    width: 100%;
+  }
+
+  .models-header {
+    padding: 0 var(--spacing-3);
+  }
+
+  .models-header .section-title {
+    font-size: 1.5rem;
+    line-height: 1.28;
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  .models-header .section-description {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+  }
+
+  .models-hero-viewport {
+    height: clamp(190px, 56.25vw, 270px);
+    padding: 0;
+  }
+
+  .models-tab-btn {
+    padding: 0.65rem 1.1rem;
+    font-size: var(--text-xs);
+  }
+
+  .models-meta-title {
+    font-size: var(--text-2xl);
+  }
+
+  .models-meta-action {
+    width: 100%;
+  }
+
+  .models-meta-action .btn {
+    width: 100%;
+  }
+
+  .models-specs-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .models-carousel-controls {
+    gap: var(--spacing-3);
+    margin-top: var(--spacing-4);
+  }
+
+  .models-carousel-btn {
+    width: 36px;
+    height: 36px;
+  }
+}

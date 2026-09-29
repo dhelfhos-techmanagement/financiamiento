@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Interno — Financiamiento & Soluciones</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --p: #0a1f3c;
+            --a: #1a7f5e;
+            --a2: #38c492;
+            --bg: #eef1f5;
+            --surface: #ffffff;
+            --border: #cdd4de;
+            --text: #1a2535;
+            --muted: #607080;
+            --danger: #c0392b;
+            --success: #16a34a;
+            --info: #1d4ed8;
+            --warn: #b45309;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            padding: 30px 20px 60px;
+            color: var(--text);
+            background-image:
+                radial-gradient(ellipse at 20% 0%, rgba(26,127,94,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 100%, rgba(10,31,60,0.07) 0%, transparent 60%);
+        }
+
+        .wrap {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
+        .header {
+            background: var(--p);
+            border-radius: 12px 12px 0 0;
+            padding: 32px 36px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--a), var(--a2), var(--a));
+        }
+
+        .header::after {
+            content: 'S';
+            position: absolute;
+            right: 30px; top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Syne', sans-serif;
+            font-size: 7rem;
+            font-weight: 900;
+            color: rgba(255,255,255,0.04);
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(56,196,146,0.18);
+            color: var(--a2);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(56,196,146,0.35);
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .header p {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.45);
+            margin-top: 6px;
+            letter-spacing: 1px;
+        }
+
+        /* CARD */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            padding: 36px;
+            box-shadow: 0 20px 50px rgba(12,21,38,0.12);
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--a);
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            margin: 28px 0 18px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        .section-title span.num {
+            background: var(--p);
+            color: var(--a);
+            font-family: 'DM Mono', monospace;
+            font-size: 0.65rem;
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+        }
+
+        /* GRID */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .full { grid-column: 1 / -1; }
+
+        /* FIELD */
+        .field { display: flex; flex-direction: column; gap: 6px; }
+
+        label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--muted);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: #fafaf8;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            appearance: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--a);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(26,127,94,0.15);
+            background: white;
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a7f5e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        /* INICIAL BOX */
+        .inicial-box {
+            background: linear-gradient(135deg, #f8f5f0, #fdfcf8);
+            border: 1.5px solid var(--a);
+            border-radius: 10px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inicial-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--a), var(--a2));
+        }
+
+        .inicial-top {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .slider-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-top: 8px;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            flex: 1;
+            height: 6px;
+            background: linear-gradient(90deg, var(--a) var(--pct, 0%), #e2ddd6 var(--pct, 0%));
+            border-radius: 3px;
+            border: none;
+            padding: 0;
+            outline: none;
+            box-shadow: none;
+            cursor: pointer;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px; height: 20px;
+            background: var(--p);
+            border: 3px solid var(--a);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+        .pct-badge {
+            font-family: 'DM Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--p);
+            background: white;
+            border: 1.5px solid var(--a);
+            border-radius: 8px;
+            padding: 6px 14px;
+            min-width: 68px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .inicial-calc {
+            background: var(--p);
+            color: white;
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        .inicial-calc span:first-child {
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.55);
+            font-family: 'DM Mono', monospace;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .inicial-calc .val {
+            font-family: 'DM Mono', monospace;
+            font-size: 1.05rem;
+            color: var(--a2);
+            font-weight: 500;
+        }
+
+        /* HINT */
+        .hint {
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        /* BTN */
+        .btn-calc {
+            width: 100%;
+            background: var(--p);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            margin-top: 32px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .btn-calc::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--a), var(--a2), var(--a));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .btn-calc:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(12,21,38,0.3); }
+        .btn-calc:hover::before { transform: scaleX(1); }
+        .btn-calc:active { transform: translateY(0); }
+
+        /* RESULT */
+        #result {
+            display: none;
+            margin-top: 28px;
+            animation: fadeUp 0.4s ease;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-inner {
+            background: var(--p);
+            border-radius: 12px;
+            padding: 32px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-inner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--a), var(--a2), var(--a));
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+            margin-top: 22px;
+        }
+
+        .result-box {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .result-box .rb-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            color: rgba(255,255,255,0.45);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .result-box .rb-val {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--a2);
+            font-weight: 500;
+        }
+
+        .profile-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-family: 'DM Mono', monospace;
+            font-weight: 500;
+            font-size: 0.72rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .cuota-main {
+            font-family: 'Syne', sans-serif;
+            font-size: 3.4rem;
+            font-weight: 900;
+            color: white;
+            line-height: 1;
+            margin: 8px 0 4px;
+        }
+
+        .cuota-sub {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.45);
+            font-family: 'DM Mono', monospace;
+            letter-spacing: 1px;
+        }
+
+        .warning-box {
+            display: none;
+            background: rgba(192,57,43,0.15);
+            border: 1px solid rgba(192,57,43,0.4);
+            border-radius: 8px;
+            padding: 14px 16px;
+            font-size: 0.82rem;
+            color: #fca5a5;
+            margin-top: 18px;
+            line-height: 1.5;
+        }
+
+        .warning-box b { color: #fecaca; }
+
+        .result-footer {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.62rem;
+            color: rgba(255,255,255,0.3);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 14px;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .grid, .grid-3 { grid-template-columns: 1fr; }
+            .inicial-top { grid-template-columns: 1fr; }
+            .result-grid { grid-template-columns: 1fr 1fr; }
+            .card { padding: 24px 20px; }
+            .cuota-main { font-size: 2.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrap">
+    <div class="header">
+        <div class="header-badge">HERRAMIENTA INTERNA</div>
+        <h1>SISTEMA DE ORIGINACIÓN SOLIDEZ</h1>
+        <p>VERSIÓN 4.0 — PLAZOS DINÁMICOS · INICIAL VARIABLE · CONTROL DE RIESGO</p>
+    </div>
+
+    <div class="card">
+
+        <!-- SECCIÓN 1: PARÁMETROS MOTO -->
+        <div class="section-title">
+            <span class="num">1</span>
+            Parámetros de la Moto
+        </div>
+
+        <div class="grid">
+            <div class="field">
+                <label>Valor Comercial ($)</label>
+                <input type="number" id="v_moto" placeholder="12,000,000" oninput="actualizarInicial()">
+            </div>
+            <div class="field">
+                <label>Plazo de Financiación</label>
+                <select id="v_plazo">
+                    <option value="12">12 Meses</option>
+                    <option value="24" selected>24 Meses</option>
+                    <option value="36">36 Meses</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- CUOTA INICIAL -->
+        <div class="inicial-box" style="margin-top: 20px;">
+            <div class="inicial-top">
+                <div class="field">
+                    <label>% de Cuota Inicial</label>
+                    <div class="slider-row">
+                        <input type="range" id="v_pct" min="37" max="80" value="37" step="1" oninput="actualizarPorcentaje(this.value)">
+                        <div class="pct-badge" id="pct_display">37%</div>
+                    </div>
+                    <div class="hint">Mínimo 37% — desliza para ajustar</div>
+                </div>
+                <div class="field">
+                    <label>Valor Inicial Manual ($)</label>
+                    <input type="number" id="v_inicial" placeholder="Auto-calculado" oninput="actualizarDesdeMonto()">
+                    <div class="hint" id="pct_hint_manual">Escribe para ajustar el %</div>
+                </div>
+            </div>
+            <div class="inicial-calc">
+                <span>Monto inicial calculado</span>
+                <span class="val" id="v_inicial_display">$ —</span>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 2: CALIFICACIÓN -->
+        <div class="section-title">
+            <span class="num">2</span>
+            Calificación del Cliente (Soportes)
+        </div>
+
+        <div class="grid">
+            <div class="field">
+                <label>DataCrédito (0 – 999)</label>
+                <input type="number" id="v_score" placeholder="Puntaje" min="0" max="999">
+            </div>
+            <div class="field">
+                <label>Ingresos Netos Mensuales ($)</label>
+                <input type="number" id="v_ingresos" placeholder="Certificado Laboral">
+            </div>
+            <div class="field">
+                <label>Egresos Mensuales ($)</label>
+                <input type="number" id="v_egresos" placeholder="Extractos Bancarios">
+            </div>
+            <div class="field">
+                <label>Antigüedad en Actividad</label>
+                <select id="v_antiguedad">
+                    <option value="30">Más de 2 años</option>
+                    <option value="15">De 6 meses a 2 años</option>
+                    <option value="0">Menos de 6 meses</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- SECCIÓN 3: ARRAIGO -->
+        <div class="section-title">
+            <span class="num">3</span>
+            Verificación de Arraigo
+        </div>
+
+        <div class="grid">
+            <div class="field">
+                <label>Tenencia de Vivienda</label>
+                <select id="v_vivienda">
+                    <option value="30">Propia / Familiar</option>
+                    <option value="10">Arrendada</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Antigüedad Línea Celular</label>
+                <select id="v_tel">
+                    <option value="20">Más de 2 años</option>
+                    <option value="0">Línea Reciente</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn-calc" onclick="ejecutarSimulacion()">CALCULAR PLAN DE PAGO</button>
+
+        <!-- RESULTADO -->
+        <div id="result">
+            <div class="result-inner">
+                <div id="perfil_tag" class="profile-tag"></div>
+                <div id="perfil_nombre" style="font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; color:rgba(255,255,255,0.8);"></div>
+                <div class="cuota-main" id="cuota_final">$ 0</div>
+                <div class="cuota-sub">CUOTA MENSUAL FIJA — SEGUROS Y GPS INCLUIDOS</div>
+
+                <div class="result-grid">
+                    <div class="result-box">
+                        <div class="rb-label">Capital a Financiar</div>
+                        <div class="rb-val" id="r_capital">—</div>
+                    </div>
+                    <div class="result-box" style="display:none">
+                        <div class="rb-label">Tasa Mensual</div>
+                        <div class="rb-val" id="r_tasa">—</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="rb-label">Plazo</div>
+                        <div class="rb-val" id="r_plazo">—</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="rb-label">Cuota Inicial</div>
+                        <div class="rb-val" id="r_inicial">—</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="rb-label">% Inicial</div>
+                        <div class="rb-val" id="r_pct_inicial">—</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="rb-label">Puntuación Interna</div>
+                        <div class="rb-val" id="r_pts">—</div>
+                    </div>
+                </div>
+
+                <div id="warning" class="warning-box">
+                    <b>⚠ AVISO DE CAPACIDAD:</b> La cuota supera el 42% del ingreso disponible. Se requiere validar un codeudor solvente antes de continuar con la originación.
+                </div>
+
+                <div class="result-footer">
+                    * Plan blindado: Incluye GPS, Seguro de Vida y Seguro de Desempleo.<br>
+                    * Sujeto a firma de Pacto de Retroventa y Contrato de Dación en Pago.<br>
+                    * Simulación interna — no constituye oferta vinculante.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function fmt(n) {
+        return "$ " + Math.round(n).toLocaleString('es-CO');
+    }
+
+    function actualizarSliderFondo(val) {
+        const min = 37, max = 80;
+        const pct = ((val - min) / (max - min)) * 100;
+        document.getElementById('v_pct').style.setProperty('--pct', pct + '%');
+    }
+
+    function actualizarPorcentaje(val) {
+        const pct = parseInt(val);
+        document.getElementById('pct_display').innerText = pct + '%';
+        actualizarSliderFondo(pct);
+        const moto = parseFloat(document.getElementById('v_moto').value) || 0;
+        if (moto > 0) {
+            const calc = moto * (pct / 100);
+            document.getElementById('v_inicial').value = Math.round(calc);
+            document.getElementById('v_inicial_display').innerText = fmt(calc);
+        }
+    }
+
+    function actualizarDesdeMonto() {
+        const moto = parseFloat(document.getElementById('v_moto').value) || 0;
+        const ini = parseFloat(document.getElementById('v_inicial').value) || 0;
+        if (moto > 0 && ini > 0) {
+            const pct = Math.round((ini / moto) * 100);
+            const clampedPct = Math.max(37, Math.min(80, pct));
+            document.getElementById('v_pct').value = clampedPct;
+            document.getElementById('pct_display').innerText = clampedPct + '%';
+            actualizarSliderFondo(clampedPct);
+            document.getElementById('v_inicial_display').innerText = fmt(ini);
+        }
+    }
+
+    function actualizarInicial() {
+        const moto = parseFloat(document.getElementById('v_moto').value) || 0;
+        const pct = parseInt(document.getElementById('v_pct').value);
+        if (moto > 0) {
+            const calc = moto * (pct / 100);
+            document.getElementById('v_inicial').value = Math.round(calc);
+            document.getElementById('v_inicial_display').innerText = fmt(calc);
+        } else {
+            document.getElementById('v_inicial_display').innerText = '$ —';
+        }
+    }
+
+    // Inicializar slider
+    actualizarSliderFondo(37);
+
+    function ejecutarSimulacion() {
+        const moto = parseFloat(document.getElementById('v_moto').value);
+        const inicial = parseFloat(document.getElementById('v_inicial').value);
+        const score = parseInt(document.getElementById('v_score').value);
+        const ingresos = parseFloat(document.getElementById('v_ingresos').value);
+        const egresos = parseFloat(document.getElementById('v_egresos').value);
+        const n = parseInt(document.getElementById('v_plazo').value);
+
+        if (!moto || !inicial || !score || !ingresos || !egresos) {
+            alert("Por favor completa todos los campos antes de calcular.");
+            return;
+        }
+
+        const pctReal = (inicial / moto) * 100;
+
+        if (pctReal < 37) {
+            alert("ERROR: La política exige una cuota inicial mínima del 37% del valor comercial.");
+            return;
+        }
+
+        let pts = 0;
+        if (score >= 780) pts += 40; else if (score >= 680) pts += 25; else if (score >= 550) pts += 10;
+        pts += parseInt(document.getElementById('v_antiguedad').value);
+        pts += parseInt(document.getElementById('v_vivienda').value);
+        pts += parseInt(document.getElementById('v_tel').value);
+
+        const tasaInt = 0.05;
+        let perfil = "PERFIL RIESGO (T4)";
+        let color = "#ef4444";
+        let bgAlpha = "rgba(239,68,68,0.15)";
+
+        if (pts >= 95) {
+            perfil = "PERFIL DIAMANTE (T1)";
+            color = "#22c55e"; bgAlpha = "rgba(34,197,94,0.15)";
+        } else if (pts >= 75) {
+            perfil = "PERFIL PREFERENCIAL (T2)";
+            color = "#60a5fa"; bgAlpha = "rgba(96,165,250,0.15)";
+        } else if (pts >= 50) {
+            perfil = "PERFIL ESTÁNDAR (T3)";
+            color = "#fbbf24"; bgAlpha = "rgba(251,191,36,0.15)";
+        }
+
+        const saldoBase = moto - inicial;
+        const capitalAFinanciar = (saldoBase * 1.035) + 550000;
+        const cuotaCalculada = (capitalAFinanciar * (tasaInt * Math.pow(1 + tasaInt, n))) / (Math.pow(1 + tasaInt, n) - 1);
+        const cuotaFinal = cuotaCalculada + 38000;
+
+        const disponible = ingresos - egresos;
+        const isOverLimit = cuotaFinal > (disponible * 0.42);
+
+        // Mostrar resultado
+        document.getElementById('result').style.display = 'block';
+        document.getElementById('result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        const tag = document.getElementById('perfil_tag');
+        tag.innerText = pts + " PTS — " + perfil;
+        tag.style.background = bgAlpha;
+        tag.style.color = color;
+        tag.style.border = "1px solid " + color + "55";
+
+        document.getElementById('perfil_nombre').innerText = perfil;
+        document.getElementById('cuota_final').innerText = fmt(cuotaFinal);
+
+        document.getElementById('r_capital').innerText = fmt(capitalAFinanciar);
+        document.getElementById('r_tasa').innerText = (tasaInt * 100).toFixed(1) + "% M.V.";
+        document.getElementById('r_plazo').innerText = n + " meses";
+        document.getElementById('r_inicial').innerText = fmt(inicial);
+        document.getElementById('r_pct_inicial').innerText = pctReal.toFixed(1) + "%";
+        document.getElementById('r_pts').innerText = pts + " / 110 pts";
+
+        document.getElementById('warning').style.display = isOverLimit ? 'block' : 'none';
+    }
+</script>
+</body>
+</html>

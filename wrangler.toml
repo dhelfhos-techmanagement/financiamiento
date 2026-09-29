@@ -1,0 +1,9 @@
+name = "financiamiento-soluciones"
+compatibility_date = "2026-09-28"
+pages_build_output_dir = "."
+
+# Configuración de Cloudflare D1 Database para producción
+[[d1_databases]]
+binding = "DB"
+database_name = "financiamiento_soluciones_db"
+database_id = "YOUR_D1_DATABASE_ID_HERE"
